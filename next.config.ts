@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // The portfolio is fully static; export to `out/` so hosting does not depend
+  // on a framework preset or an output-directory setting.
+  output: "export",
   turbopack: {
     root: process.cwd(),
     rules: {
@@ -11,6 +14,7 @@ const nextConfig: NextConfig = {
     },
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
